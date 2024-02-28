@@ -21,6 +21,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Description</th>
+                                <th>type</th>
                                 <th>Date start</th>
                                 <th>Date end</th>
                                 <th>Function</th>
@@ -32,6 +33,8 @@
                                     <td>{{ $project->id }}</td>
                                     <td>{{ $project->slug }}</td>
                                     <td>{{ Str::limit($project->description, 20, '(...)') }}</td>
+                                    <td class="text-center">{{ $project->type ? $project->type->name : 'Without type' }}
+                                    </td>
                                     <td>{{ $project->date_start }}</td>
                                     <td>{{ $project->date_end }}</td>
                                     <td>
@@ -45,16 +48,6 @@
                                                 title="Modifica" class="btn btn-sm btn-square btn-warning me-1">
                                                 <i class="fas fa-edit "></i>
                                             </a>
-                                            {{-- <form
-                                                action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}"
-                                                method="post"
-                                                onsubmit="return confirm('Sei sicuro di voler eliminare questo post?')">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-square btn-danger btn-delete">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form> --}}
                                             <button class="btn btn-sm btn-square btn-danger btn-delete"
                                                 data-bs-toggle="modal" data-bs-target="#modal_project_delete"
                                                 data-projectid="{{ $project->id }}"

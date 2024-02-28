@@ -15,10 +15,10 @@
                     </div>
                     <form action="{{ route('admin.projects.update', $project->id) }}" method="post"
                         enctype="multipart/form-data">
+                        @csrf
                 @endif
                 @method('PUT')
                 <div class="form-group my-3">
-                    @csrf
                     <label for="title" class="control-label">Name</label>
                     <input type="text" name="name" id="name" placeholder="name"
                         value="{{ old('name') ?? $project->name }}" class="form-control @error('name') is-invalid @enderror"

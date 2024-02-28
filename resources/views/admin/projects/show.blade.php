@@ -10,6 +10,7 @@
                 @else
                     <img src="{{ asset('/img/public/img/aaaa.jpg') }}" alt="{{ $project->name }}" width="100">
                 @endif
+                <p>{{ $project->type ? $project->type->name : 'Without type' }}</p>
                 <p>{{ $project->slug }}</p>
                 <p>{{ $project->description }}</p>
             </div>

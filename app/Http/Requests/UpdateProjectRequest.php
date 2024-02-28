@@ -25,6 +25,7 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             'name' => 'required|max:150',
+            'cover_image' => 'nullable|image|max:1024',
             'description' => 'required'
         ];
     }
@@ -34,6 +35,8 @@ class UpdateProjectRequest extends FormRequest
         return [
             'name.required' => 'Il nome del progetto è obbligatorio',
             'name.max' => 'Il nome del progetto deve essere lungo massimo 150 caratteri',
+            'cover_image.image' => 'Il file selezionato deve essere un immagine',
+            'cover_image.size' => 'Il file deve essere grande al massimo 1024 kb',
             'description' => 'La descrizione è obbligatoria'
         ];
     }

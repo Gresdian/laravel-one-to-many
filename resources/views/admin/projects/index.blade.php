@@ -48,12 +48,14 @@
                                                 title="Modifica" class="btn btn-sm btn-square btn-warning me-1">
                                                 <i class="fas fa-edit "></i>
                                             </a>
-                                            <button class="btn btn-sm btn-square btn-danger btn-delete"
-                                                data-bs-toggle="modal" data-bs-target="#modal_project_delete"
-                                                data-projectid="{{ $project->id }}"
-                                                data-projectname="{{ $project->name }}">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
+                                            <form action="{{ route('admin.projects.destroy', ['project' => $project]) }}"
+                                                method="post"
+                                                onsubmit="return confirm('Sei sicuro di voler eliminare questo project')">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger"><i
+                                                        class="fas fa-trash"></i></button>
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>

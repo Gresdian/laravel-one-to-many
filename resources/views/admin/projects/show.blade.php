@@ -5,11 +5,11 @@
         <div class="row">
             <div class="col-12">
                 <h2>{{ $project->name }}</h2>
-                @if ($project->cover_image !== null)
-                    <img src="{{ asset('/storage/' . $project->cover_image) }}" alt="{{ $project->name }}" width="100">
-                @else
-                    <img src="{{ asset('/img/public/img/aaaa.jpg') }}" alt="{{ $project->name }}" width="100">
-                @endif
+                <img src="{{ $project->cover_image !== null ? asset('/storage/' . $project->cover_image) : asset('/img/aaaa.jpg') }}"
+                    alt="{{ $project->name }}" width="100">
+                <a
+                    href="{{ $project->cover_image !== null ? asset('/storage/' . $project->cover_image) : asset('/img/aaaa.jpg') }}">Download
+                    image</a>
                 <p>{{ $project->type ? $project->type->name : 'Without type' }}</p>
                 <p>{{ $project->slug }}</p>
                 <p>{{ $project->description }}</p>

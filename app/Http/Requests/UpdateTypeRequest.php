@@ -13,7 +13,7 @@ class UpdateTypeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class UpdateTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'max:150'
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name' => 'Il nome deve essere massimo 150 caratteri'
         ];
     }
 }
